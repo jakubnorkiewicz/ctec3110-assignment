@@ -1,5 +1,5 @@
-# ctec3110-assignment
-
+## Roles
+<pre>
 • Team Leader - Jakub Norkiewicz
 • Software Architect - Damian Klisiewicz
 • Web Application Developer - Bartlomiej Zakrzewski
@@ -9,3 +9,4 @@
 • Interface Designer - Jakub Norkiewicz
 • Documenter (DocBlocks) - Bartlomiej Zakrzewski
 • Coding standards compliance (PSR-1 & 12) - Bartlomiej Zakrzewski
+</pre>
