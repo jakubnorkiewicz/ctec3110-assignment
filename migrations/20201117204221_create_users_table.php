@@ -1,0 +1,24 @@
+<?php
+
+use App\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreateUsersTable extends Migration
+{
+    public function up()
+    {
+        $this->schema->create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->string('password');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        $this->schema->dropIfExists('users');
+    }
+}
