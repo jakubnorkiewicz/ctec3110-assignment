@@ -1,0 +1,10 @@
+{
+    "name": "jakubnorkiewicz/ctec3110-assignment",
+    "type": "project",
+    "require": {
+        "slim/slim": "^4.6",
+        "monolog/monolog": "^2.1",
+        "illuminate/database": "^8.15",
+        "robmorgan/phinx": "^0.12.4"
+    }
+}
