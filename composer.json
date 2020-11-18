@@ -6,5 +6,10 @@
         "monolog/monolog": "^2.1",
         "illuminate/database": "^8.15",
         "robmorgan/phinx": "^0.12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src"
+        }
     }
 }
