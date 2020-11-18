@@ -32,8 +32,8 @@ have been discussed this academic year:
 - [ ] Separation of Concerns Architecture & Single Point of Access
 - [ ] Object Oriented PHP
 - [ ] following the SOLID guidelines
-- [ ] SLIM micro-framework
-- [ ] TWIG template engine
+- [x] SLIM micro-framework
+- [x] TWIG template engine
 - [ ] Monolog logging
 - [ ] Application of security techniques and avoidance of common web application
 vulnerabilities
