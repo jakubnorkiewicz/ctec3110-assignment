@@ -11,6 +11,7 @@ return [
         // Twig View settings
         'view' => [
             'template_path' => PATH_ROOT . '../components/',
+            'cache_enabled' => false, // in production set to true
             'cache_path' => PATH_ROOT . '../storage/cache/',
             'debug' => true,
         ],
