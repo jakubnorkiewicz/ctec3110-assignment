@@ -12,6 +12,7 @@ return [
         'view' => [
             'template_path' => '../components/',
             'cache_path' => '../storage/cache/',
+            'cache' => false,
             'debug' => true,
         ],
 
