@@ -5,7 +5,8 @@
         "slim/slim": "^4.6",
         "monolog/monolog": "^2.1",
         "illuminate/database": "^8.15",
-        "robmorgan/phinx": "^0.12.4"
+        "robmorgan/phinx": "^0.12.4",
+        "slim/psr7": "^1.2"
     },
     "autoload": {
         "psr-4": {
