@@ -5,20 +5,20 @@ return [
 
         // PHP Renderer settings
         'renderer' => [
-            'template_path' => PATH_ROOT . '../components/',
+            'template_path' => '../components/',
         ],
 
         // Twig View settings
         'view' => [
-            'template_path' => PATH_ROOT . '../components/',
-            'cache_path' => PATH_ROOT . '../storage/cache/',
+            'template_path' => '../components/',
+            'cache_path' => '../storage/cache/',
             'debug' => true,
         ],
 
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
-            'path' => PATH_ROOT . '../storage/log/server.log',
+            'path' => '../storage/log/server.log',
         ],
     ],
 ];
