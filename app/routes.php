@@ -1,5 +1,7 @@
 <?php
 
+/** Main routing file */
+
 require 'routes/homepage.php';
 require 'routes/login.php';
 require 'routes/register.php';

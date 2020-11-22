@@ -5,6 +5,11 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateMessagesTable extends Migration
 {
+    /**
+     * Creates 'messages' table.
+     *
+     * @return void
+     */
     public function up()
     {
         $this->schema->create('messages', function (Blueprint $table) {
@@ -21,6 +26,11 @@ class CreateMessagesTable extends Migration
         });
     }
 
+    /**
+     * Removes 'messages' table if it exists.
+     *
+     * @return void
+     */
     public function down()
     {
         $this->schema->dropIfExists('messages');

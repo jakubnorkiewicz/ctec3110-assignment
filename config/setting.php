@@ -1,4 +1,7 @@
 <?php
+/**
+ * General config file for the SLIM application.
+ */
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production

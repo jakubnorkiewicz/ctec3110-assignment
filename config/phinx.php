@@ -1,4 +1,7 @@
 <?php
+/**
+ * Configuration file used by Phinx migration tool.
+ */
 require './config.php';
 return [
     'paths' => [
