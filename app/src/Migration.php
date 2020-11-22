@@ -3,14 +3,30 @@
 namespace App;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 use Phinx\Migration\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
-
+    /**
+     * Object used for connecting with database.
+     *
+     * @var Capsule
+     */
     public $capsule;
+
+    /**
+     * Function used for interacting with database.
+     *
+     * @var Schema
+     */
     public $schema;
 
+    /**
+     * Initialise database migration.
+     *
+     * @return void
+     */
     public function init()
     {
         $this->capsule = new Capsule;

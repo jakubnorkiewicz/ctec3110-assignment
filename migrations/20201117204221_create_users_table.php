@@ -5,6 +5,11 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration
 {
+    /**
+     * Creates 'users' table.
+     *
+     * @return void
+     */
     public function up()
     {
         $this->schema->create('users', function (Blueprint $table) {
@@ -17,6 +22,11 @@ class CreateUsersTable extends Migration
         });
     }
 
+    /**
+     * Removes 'users' table if it exists.
+     *
+     * @return void
+     */
     public function down()
     {
         $this->schema->dropIfExists('users');
