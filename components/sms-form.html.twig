@@ -1,5 +1,36 @@
 {% extends 'layout.html.twig' %}
 {% block title %}SMS Form{% endblock %}
 {% block content %}
-    <h1>SMS Form</h1>
+
+
+    <div class="row mt-3">
+        <div class="col-7">
+            <h2>SMS Form</h2>
+            <p>Here you can send SMS. Did you know that SMS stands for <span class="font-italic">Short Message Service?</span></p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px">
+        <div class="col-8 offset-2 border border-primary p-3">
+            <h2>Create new SMS</h2>
+            <form>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone number</label>
+                    <input type="number" class="form-control" id="phoneNumber"
+                           placeholder="Enter phone number">
+                    <small id="emailHelp" class="form-text text-muted">Our service works with British phone numbers only.</small>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your message</label>
+                    <textarea class="form-control" id="message" rows="4"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Send</button><br>
+                    <small class="text-success">Your message has been sent successfully.</small><br>
+                    <small class="text-danger">There was a problem. Please try again.</small>
+                </div>
+            </form>
+        </div>
+    </div>
+
 {% endblock %}

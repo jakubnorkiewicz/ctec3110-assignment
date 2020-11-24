@@ -1,5 +1,56 @@
 {% extends 'layout.html.twig' %}
-{% block title %}Homepage{% endblock %}
+{% block title %}Login{% endblock %}
 {% block content %}
-    <h1>Homepage</h1>
+
+
+    <div class="row mt-3">
+        <div class="col-7">
+            <h2>DMU CTEC3110 Assignment</h2>
+            <p>Some description about this project, what it does, how it works and how to use it.</p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px">
+        <div class="col-5 border border-primary p-3">
+            <h2>Sign up</h2>
+            <p>Create a new account.</p>
+            <form>
+                <div class="form-group">
+                    <label for="emailAddress">Email address</label>
+                    <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
+                           placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">You'll get a confirmation message.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Register</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-5 border border-primary p-3 offset-1">
+            <h2>Log in</h2>
+            <p>Already got an account?</p>
+            <form>
+                <div class="form-group">
+                    <label for="emailAddress">Email address</label>
+                    <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
+                           placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Log in</button><br>
+                    <small><a href="/resetPassword">Forgot your password?</a></small>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
 {% endblock %}

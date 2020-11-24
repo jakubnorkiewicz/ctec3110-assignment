@@ -10,7 +10,8 @@ $app = AppFactory::create();
 
 // Create Twig
 $twig = Twig::create(__DIR__ . '/../components',
-    ['cache' => __DIR__ . '/../storage/cache']);
+    ['cache' => false]);
+//    ['cache' => __DIR__ . '/../storage/cache']);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
