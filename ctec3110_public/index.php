@@ -9,13 +9,13 @@ $app = AppFactory::create();
 
 
 // Create Twig
-$twig = Twig::create(__DIR__ . '/../components',
+$twig = Twig::create(__DIR__ . '/../ctec3110_private/components',
     ['cache' => false]);
 //    ['cache' => __DIR__ . '/../storage/cache']);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
 
-require '../app/routes.php';
+require __DIR__ . '/../ctec3110_private/app/routes.php';
 
 $app->run();
