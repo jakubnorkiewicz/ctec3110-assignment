@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+{% block title %}SMS Form{% endblock %}
+{% block content %}
+
+
+    <div class="row mt-3">
+        <div class="col-7">
+            <h2>Test sms service</h2>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px">
+        <div class="col-8 offset-2 border border-primary p-3">
+            <h2>Send new SMS</h2>
+            <form>
+                <div class="form-group">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Click this and you should get SMS</button><br>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
