@@ -67,4 +67,4 @@ connection details.
 ### Migration setup
   1. Copy config_example.php file and rename it to config.php
   2. Update database connection details if needed
-  3. Run `php vendor/bin/phinx migrate -c config/phinx.php` command
+  3. Run `php vendor/bin/phinx migrate -c ctec3110_private/config/phinx.php` command

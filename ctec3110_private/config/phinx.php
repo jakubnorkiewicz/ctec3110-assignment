@@ -2,10 +2,10 @@
 /**
  * Configuration file used by Phinx migration tool.
  */
-require './config.php';
+require './ctec3110_private/config.php';
 return [
     'paths' => [
-        'migrations' => 'migrations'
+        'migrations' => 'ctec3110_private/migrations'
     ],
     'migration_base_class' => '\App\Migration',
     'environments' => [
