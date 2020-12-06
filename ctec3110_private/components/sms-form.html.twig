@@ -13,16 +13,22 @@
     <div class="row" style="margin-top: 50px">
         <div class="col-8 offset-2 border border-primary p-3">
             <h2>Create new SMS</h2>
-            <form>
+            <form method="post" action="/send-sms">
                 <div class="form-group">
                     <label for="phoneNumber">Phone number</label>
-                    <input type="number" class="form-control" id="phoneNumber"
+                    <input type="number"
+                           class="form-control"
+                           id="phoneNumber"
+                           name="phoneNumber"
                            placeholder="Enter phone number">
                     <small id="emailHelp" class="form-text text-muted">Our service works with British phone numbers only.</small>
                 </div>
                 <div class="form-group">
                     <label for="message">Your message</label>
-                    <textarea class="form-control" id="message" rows="4"></textarea>
+                    <textarea class="form-control"
+                              id="message"
+                              name="message"
+                              rows="4"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary mt-3">Send</button><br>
