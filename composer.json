@@ -7,7 +7,8 @@
         "illuminate/database": "^8.15",
         "robmorgan/phinx": "^0.12.4",
         "slim/psr7": "^1.2",
-        "slim/twig-view": "^3.1"
+        "slim/twig-view": "^3.1",
+        "davidepastore/slim-validation": "^0.5.1"
     },
     "autoload": {
         "psr-4": {
