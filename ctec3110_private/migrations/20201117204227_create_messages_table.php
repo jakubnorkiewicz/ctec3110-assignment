@@ -14,15 +14,18 @@ class CreateMessagesTable extends Migration
     {
         $this->schema->create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('source_number');
+            $table->string('source_number')->nullable();
             $table->string('destination_number');
-            $table->string('bearer');
-            $table->string('message_ref');
-            $table->boolean('switch');
-            $table->string('fan_fwd_or_rvs');
-            $table->float('heater_temp');
-            $table->integer('keypad_number');
+            $table->string('value');
+            $table->string('bearer')->nullable();
+            $table->string('message_ref')->nullable();
+            $table->boolean('switch')->nullable();
+            $table->string('fan_fwd_or_rvs')->nullable();
+            $table->float('heater_temp')->nullable();
+            $table->integer('keypad_number')->nullable();
             $table->timestamps();
+
+            // todo get rid of the nullable(), pass the right data
         });
     }
 
