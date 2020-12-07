@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+
+
+    <div class="row mt-3">
+        <div class="col-7">
+            <h2>Messages</h2>
+        </div>
+    </div>
+
+<div class="row" style="margin-top: 50px">
+    <div class="col-12 border border-primary p-3">
+        <div class="table-responsive-sm table-hover">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Source</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Bearer</th>
+                    <th scope="col">Message reference</th>
+                    <th scope="col">Switch</th>
+                    <th scope="col">Fan</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col">Keypad no.</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for received_message in received_messages %}
+                    <tr>
+                        <td>{{ received_message.source_number }}</td>
+                        <td>{{ received_message.destination_number }}</td>
+                        <td>{{ received_message.value }}</td>
+                        <td>{{ received_message.bearer }}</td>
+                        <td>{{ received_message.message_ref }}</td>
+                        <td>{{ received_message.switch }}</td>
+                        <td>{{ received_message.fan_fwd_or_rvs }}</td>
+                        <td>{{ received_message.heater_temp }}</td>
+                        <td>{{ received_message.keypad_number }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+{% endblock %}
