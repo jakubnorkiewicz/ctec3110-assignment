@@ -4,11 +4,18 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../ctec3110_private/config.php';
 
 $app = AppFactory::create();
+
+// Create Monolog log file
+$log = new Logger('name');
+$log->pushHandler(new StreamHandler(__DIR__ . '/../ctec3110_private/storage/log/monolog.log', Logger::WARNING));
+
 
 // Create connection with database
 $capsule = new Capsule;
