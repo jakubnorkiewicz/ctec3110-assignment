@@ -1,5 +1,6 @@
 config.php
-
+.svn/*
+trunk/*
 # Created by https://www.toptal.com/developers/gitignore/api/phpunit,phpstorm,macos,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=phpunit,phpstorm,macos,visualstudiocode
 
