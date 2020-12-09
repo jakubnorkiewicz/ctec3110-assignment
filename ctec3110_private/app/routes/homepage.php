@@ -1,5 +1,7 @@
 <?php
 
+use App\Actions\LoginSubmitAction;
+use App\Actions\LogoutAction;
 use App\Models\User;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -19,3 +21,6 @@ $app->post('/register', function (Request $request, Response $response, $args) {
     return $response->withStatus(302)->withHeader('Location', '/');
 });
 
+$app->post('/login', LoginSubmitAction::class);
+
+$app->post('/logout', LogoutAction::class);

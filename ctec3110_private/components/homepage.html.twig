@@ -16,14 +16,14 @@
             <p>Create a new account.</p>
             <form method="post" action="/register">
                 <div class="form-group">
-                    <label for="emailAddress">Email address</label>
-                    <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
+                    <label for="emailAddress_registration">Email address</label>
+                    <input type="email" class="form-control" id="emailAddress_registration" aria-describedby="emailHelp"
                            placeholder="Enter email" name="email">
                     <small id="emailHelp" class="form-text text-muted">You'll get a confirmation message.</small>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    <label for="password_registration">Password</label>
+                    <input type="password" class="form-control" id="password_registration" placeholder="Password" name="password">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary mt-3">Register</button>
@@ -34,15 +34,15 @@
         <div class="col-5 border border-primary p-3 offset-1">
             <h2>Log in</h2>
             <p>Already got an account?</p>
-            <form>
+            <form method="post" action="/login">
                 <div class="form-group">
-                    <label for="emailAddress">Email address</label>
-                    <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
+                    <label for="emailAddress_login">Email address</label>
+                    <input type="email" name="email" class="form-control" id="emailAddress_login" aria-describedby="emailHelp"
                            placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <label for="password_login">Password</label>
+                    <input type="password" name="password" class="form-control" id="password_login" placeholder="Password">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary mt-3">Log in</button><br>
