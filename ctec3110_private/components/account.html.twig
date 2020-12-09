@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Account info{% endblock %}
+{% block content %}
+    <div class="row mt-3">
+        <div class="col-7">
+            <h2>Account info</h2>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px">
+        <div class="col-12 border border-primary p-3">
+            <p>email: {{ user['email'] }}</p>
+            <p>created at: {{ user['created_at'] }}</p>
+        </div>
+    </div>
+{% endblock %}

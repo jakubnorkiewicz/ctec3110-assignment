@@ -9,7 +9,9 @@
         "robmorgan/phinx": "^0.12.4",
         "slim/psr7": "^1.2",
         "slim/twig-view": "^3.1",
-        "davidepastore/slim-validation": "^0.5.1"
+        "davidepastore/slim-validation": "^0.5.1",
+        "symfony/http-foundation": "^5.2",
+        "php-di/slim-bridge": "^3.1"
     },
     "autoload": {
         "psr-4": {
