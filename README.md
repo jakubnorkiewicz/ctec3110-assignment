@@ -29,27 +29,27 @@ The application must, as a minimum:
 
 A complete implementation will include the following methodologies and technologies that
 have been discussed this academic year:
-- [ ] Separation of Concerns Architecture & Single Point of Access
+- [x] Separation of Concerns Architecture & Single Point of Access
 - [x] Object Oriented PHP
-- [ ] following the SOLID guidelines
+- [x] following the SOLID guidelines
 - [x] SLIM micro-framework
 - [x] TWIG template engine
 - [x] Monolog logging
-- [ ] Application of security techniques and avoidance of common web application
+- [x] Application of security techniques and avoidance of common web application
 vulnerabilities
 - [ ] Unit testing and security testing
-- [ ] Validated HTML 5 (using simple CSS for web-page layout/presentation)
+- [x] Validated HTML 5 (using simple CSS for web-page layout/presentation)
 - [x] MySQL/MariaDb
 - [ ] SOAP & WSDL file
 - [ ] Docblock comments
-- [ ] Consistent coding style
-- [ ] following the PHP-FIG PSR-1 & PSR-12 coding standards guidelines
+- [x] Consistent coding style
+- [x] following the PHP-FIG PSR-1 & PSR-12 coding standards guidelines
 - [x] Use of the Subversion Version Control Server
 - [ ] Validation of all web-pages at http://validator.w3.org/ - include the W3C validated
 logo on your web-pages when validated.
 
 Possible extensions to the implementation could include:
-- [ ] implementation of registration and login/logout features, incorporating correct session
+- [x] implementation of registration and login/logout features, incorporating correct session
 management.
 - [ ] displaying numerical data in chart form.
 - [ ] an interface to send SMS messages back to the “circuit board” containing updated
