@@ -8,6 +8,9 @@ use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use Monolog\Logger;
+use Monolog\ErrorHandler;
+use Monolog\Handler\StreamHandler;
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../ctec3110_private/config.php';
@@ -28,6 +31,12 @@ $container->set('SessionInterface', function () use ($container) {
 
 // Start the session
 $app->add(SessionMiddleware::class);
+
+// Create Monolog log file
+$log = new Logger('Dev');
+$log->pushHandler(new StreamHandler(__DIR__ . '/../ctec3110_private/storage/log/monolog.log', Logger::WARNING));
+$log->pushHandler(new Monolog\Handler\StreamHandler("php://output", Logger::WARNING));
+ErrorHandler::register($log);
 
 // Create connection with database
 $capsule = new Capsule;

@@ -23,23 +23,23 @@ The application must, as a minimum:
 - [ ] Parse all downloaded messages.
 - [ ] Validate all content.
 - [ ] Store the downloaded message (content and metadata) in the database.
-- [ ] Display the message content and metadata on the web-browser
-- [ ] Message metadata: eg source SIM number, name, email address
-- [ ] Message content: ie state of switches on the board, temperature, key-pad value, etc
+- [x] Display the message content and metadata on the web-browser
+- [x] Message metadata: eg source SIM number, name, email address
+- [x] Message content: ie state of switches on the board, temperature, key-pad value, etc
 
 A complete implementation will include the following methodologies and technologies that
 have been discussed this academic year:
 - [ ] Separation of Concerns Architecture & Single Point of Access
-- [ ] Object Oriented PHP
+- [x] Object Oriented PHP
 - [ ] following the SOLID guidelines
 - [x] SLIM micro-framework
 - [x] TWIG template engine
-- [ ] Monolog logging
+- [x] Monolog logging
 - [ ] Application of security techniques and avoidance of common web application
 vulnerabilities
 - [ ] Unit testing and security testing
 - [ ] Validated HTML 5 (using simple CSS for web-page layout/presentation)
-- [ ] MySQL/MariaDb
+- [x] MySQL/MariaDb
 - [ ] SOAP & WSDL file
 - [ ] Docblock comments
 - [ ] Consistent coding style
@@ -54,7 +54,7 @@ management.
 - [ ] displaying numerical data in chart form.
 - [ ] an interface to send SMS messages back to the “circuit board” containing updated
 settings for the board.
-- [ ] administration interface to maintain users/connection data in the database.
+- [x] administration interface to maintain users/connection data in the database.
 - [ ] logging all web-application activity.
 - [ ] using AJAX and JSON (or an RSS/ATOM feed) to update the display in the browser
 as new SMS reports are downloaded.

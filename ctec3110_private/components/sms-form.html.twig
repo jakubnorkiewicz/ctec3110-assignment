@@ -32,8 +32,12 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary mt-3">Send</button><br>
-                    <small class="text-success">Your message has been sent successfully.</small><br>
-                    <small class="text-danger">There was a problem. Please try again.</small>
+                    {% if clean %}
+                    {% elseif validationPassed %}
+                        <small class="text-success">Your message has been sent successfully.</small><br>
+                    {% else %}
+                        <small class="text-danger">Phone number must be between 9 and 12 characters.<br>Message must be between 1 and 160 characters.</small>
+                    {% endif %}
                 </div>
             </form>
         </div>
