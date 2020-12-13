@@ -14,11 +14,16 @@
 
 <div class="container">
     <header>
+        {% if user %}
         <div class="row flex-row-reverse">
             <form action="/logout" method="post">
                 <button type="submit" class="btn btn-link">Log out</button>
             </form>
+            <button type="button" class="btn btn-link">
+                <a href="/account">Account</a>
+            </button>
         </div>
+        {% endif %}
         <div class="row">
             <div class="col-2 text-primary py-3 border-right border-bottom">
                 <h4>
@@ -28,11 +33,6 @@
             <div class="col-2 text-primary py-3 border-bottom border-right">
                 <h4>
                     <a target="_blank" href="https://github.com/jakubnorkiewicz/ctec3110-assignment">Github Link</a>
-                </h4>
-            </div>
-            <div class="col-2 text-primary py-3 border-bottom border-right">
-                <h4>
-                    <a target="" href="/account">Account</a>
                 </h4>
             </div>
             <div class="col-2 text-primary py-3 border-bottom border-right">

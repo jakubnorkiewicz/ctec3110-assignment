@@ -10,6 +10,7 @@
         </div>
     </div>
 
+    {% if not user %}
     <div class="row" style="margin-top: 50px">
         <div class="col-5 border border-primary p-3">
             <h2>Sign up</h2>
@@ -60,5 +61,9 @@
         </div>
 
     </div>
+    {% else %}
+    <p class="text-success">You're logged in. Use some option in the menu.</p>
+    {% endif %}
+
 
 {% endblock %}

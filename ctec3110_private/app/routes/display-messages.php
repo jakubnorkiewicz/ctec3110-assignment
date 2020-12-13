@@ -14,5 +14,6 @@ $app->get('/display', function (Request $request, Response $response, $args) {
     $view = Twig::fromRequest($request);
     return $view->render($response, 'display-messages.html.twig', [
         'received_messages' => ReceivedMessage::all(),
+        'user' => $_SESSION['_sf2_attributes']['user']
     ]);
 });

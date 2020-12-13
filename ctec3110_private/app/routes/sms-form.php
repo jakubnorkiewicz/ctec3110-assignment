@@ -10,9 +10,13 @@ use Slim\Views\Twig;
  * @param Response $response
  * @return mixed
  */
+
 $app->get('/sms-form', function (Request $request, Response $response, $args) {
     $view = Twig::fromRequest($request);
-    return $view->render($response, 'sms-form.html.twig', ['clean'=>true]);
+    return $view->render($response, 'sms-form.html.twig', [
+        'clean'=>true,
+        'user' => $_SESSION['_sf2_attributes']['user'] ?? null
+    ]);
 });
 
 /**
@@ -35,10 +39,16 @@ $app->post('/send-sms', function (Request $request, Response $response, $args) {
             $message->destination_number = $request->getParsedBody()['phoneNumber'];
             $message->value = $request->getParsedBody()['message'];
             $message->save();
-            return $view->render($response, 'sms-form.html.twig', ['validationPassed' => true]);
+            return $view->render($response, 'sms-form.html.twig', [
+                'validationPassed' => true,
+                'user' => $_SESSION['_sf2_attributes']['user']
+            ]);
 
         } else {
-            return $view->render($response, 'sms-form.html.twig', ['validationPassed'=>false]);
+            return $view->render($response, 'sms-form.html.twig', [
+                'validationPassed'=>false,
+                'user' => $_SESSION['_sf2_attributes']['user']
+            ]);
 
         }
 });
