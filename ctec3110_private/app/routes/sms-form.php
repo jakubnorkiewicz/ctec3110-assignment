@@ -5,12 +5,21 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 
-
+/**
+ * @param Request $request
+ * @param Response $response
+ * @return mixed
+ */
 $app->get('/sms-form', function (Request $request, Response $response, $args) {
     $view = Twig::fromRequest($request);
     return $view->render($response, 'sms-form.html.twig', ['clean'=>true]);
 });
 
+/**
+ * @param Request $request
+ * @param Response $response
+ * @return Response
+ */
 $app->post('/send-sms', function (Request $request, Response $response, $args) {
 
         $view = Twig::fromRequest($request);
