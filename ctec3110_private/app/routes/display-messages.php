@@ -30,7 +30,7 @@ $app->get('/display', function (Request $request, Response $response, $args) {
     );
 
     // Invoke with the request params
-    $result = $client->__soapCall("readMessages", $paramsReadMessages);
+    $result = $client->__soapCall("peekMessages", $paramsReadMessages);
     var_dump($result);
     echo '<br><br><br>';
     var_dump(ReceivedMessage::all());
