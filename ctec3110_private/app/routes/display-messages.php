@@ -31,6 +31,9 @@ $app->get('/display', function (Request $request, Response $response, $args) {
 
     // Invoke with the request params
     $result = $client->__soapCall("peekMessages", $paramsReadMessages);
+    $json = json_encode(simplexml_load_string($result[1]));
+    $array = json_decode($json,true);
+    var_dump($array);
     var_dump($result);
     echo '<br><br><br>';
     var_dump(ReceivedMessage::all());
