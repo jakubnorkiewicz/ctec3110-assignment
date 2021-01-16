@@ -166,3 +166,4 @@ fabric.properties
 /vendor/
 
 .env
+ctec3110_private/logs/*
