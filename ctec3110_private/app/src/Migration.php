@@ -31,12 +31,12 @@ class Migration extends AbstractMigration
     {
         $this->capsule = new Capsule;
         $this->capsule->addConnection([
-            'driver' => DB_DRIVER,
-            'host' => DB_HOST,
-            'port' => DB_PORT,
-            'database' => DB_NAME,
-            'username' => DB_USER,
-            'password' => DB_PASSWORD,
+            'driver' => $_ENV['DB_DRIVER'],
+            'host' => $_ENV['DB_HOST'],
+            'port' => $_ENV['DB_PORT'],
+            'database' => $_ENV['DB_NAME'],
+            'username' => $_ENV['DB_USER'],
+            'password' => $_ENV['DB_PASSWORD'],
         ]);
 
         $this->capsule->bootEloquent();

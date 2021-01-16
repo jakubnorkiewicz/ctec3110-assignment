@@ -2,7 +2,10 @@
 /**
  * Configuration file used by Phinx migration tool.
  */
-require './ctec3110_private/config.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
+
 return [
     'paths' => [
         'migrations' => 'ctec3110_private/migrations'
@@ -13,11 +16,11 @@ return [
         'default_database' => 'dev',
         'dev' => [
             'adapter' => 'mysql',
-            'host' => DB_HOST,
-            'name' => DB_NAME,
-            'user' => DB_USER,
-            'pass' => DB_PASSWORD,
-            'port' => DB_PORT
+            'host' => $_ENV['DB_HOST'],
+            'name' => $_ENV['DB_NAME'],
+            'user' => $_ENV['DB_USER'],
+            'pass' => $_ENV['DB_PASSWORD'],
+            'port' => $_ENV['DB_PORT']
         ]
     ]
 ];
