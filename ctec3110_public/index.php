@@ -13,7 +13,9 @@ use Monolog\ErrorHandler;
 use Monolog\Handler\StreamHandler;
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../ctec3110_private/config.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv->load();
 
 $container = new Container();
 AppFactory::setContainer($container);
@@ -41,12 +43,12 @@ ErrorHandler::register($log);
 // Create connection with database
 $capsule = new Capsule;
 $capsule->addConnection([
-    'driver' => DB_DRIVER,
-    'host' => DB_HOST,
-    'port' => DB_PORT,
-    'database' => DB_NAME,
-    'username' => DB_USER,
-    'password' => DB_PASSWORD,
+    'driver' => $_ENV['DB_DRIVER'],
+    'host' => $_ENV['DB_HOST'],
+    'port' => $_ENV['DB_PORT'],
+    'database' => $_ENV['DB_NAME'],
+    'username' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASSWORD'],
 ]);
 $capsule->bootEloquent();
 $capsule->setAsGlobal();

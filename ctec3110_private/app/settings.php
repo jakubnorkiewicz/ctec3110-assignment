@@ -3,9 +3,6 @@
  * General config file for the SLIM application.
  */
 
-$wsdl = 'https://m2mconnect.ee.co.uk/orange-soap/services/MessageServiceByCountry?wsdl';
-define('WSDL', $wsdl);
-
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
