@@ -42,7 +42,7 @@ $app->post('/register', function (Request $request, Response $response, $args) {
         $user->save();
         return $view->render($response, 'homepage.html.twig', [
             'validationPassed' => true,
-            'user' => $_SESSION['_sf2_attributes']['user']
+            'user' => $_SESSION['_sf2_attributes']['user'] ?? null
         ]);
 
     } else {
