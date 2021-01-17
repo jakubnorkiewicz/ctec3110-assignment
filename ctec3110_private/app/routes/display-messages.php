@@ -4,6 +4,7 @@ use App\Models\ReceivedMessage;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * @param Request $request
@@ -28,13 +29,20 @@ $app->get('/display', function (Request $request, Response $response, $args) {
     );
 
     // Invoke with the request params
-    $result = $client->__soapCall("peekMessages", $paramsReadMessages);
-    $json = json_encode(simplexml_load_string($result[1]));
-    $array = json_decode($json,true);
-    var_dump($array);
-    var_dump($result);
-    echo '<br><br><br>';
-    var_dump(ReceivedMessage::all());
+    $results = $client->__soapCall("peekMessages", $paramsReadMessages);
+    $messages = [];
+
+    foreach ($results as $result) {
+        $json = json_encode(simplexml_load_string($result));
+        $array = json_decode($json,true);
+        VarDumper::dump($array);
+    }
+
+
+//    $json = json_encode(simplexml_load_string($result));
+//    $array = json_decode($json,true);
+//    var_dump($array);
+//    echo '<br><br><br>';
 
     return $view->render($response, 'display-messages.html.twig', [
 //      'received_messages' => $result, TODO use the $result instead of the dummy data
