@@ -9,6 +9,9 @@
 use Dotenv\Dotenv;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $jobby = new \Jobby\Jobby();
@@ -55,21 +58,60 @@ $jobby->add('SaveToDatabase', array(
         $results = $client->__soapCall("peekMessages", $paramsReadMessages);
 
         foreach ($results as $result) {
+
             $json = json_encode(simplexml_load_string($result));
             $array = json_decode($json,true);
 
-            if (in_array('iotdevice', $array)) {
+            if(isset($array['message']['groupae'])) {
             $message = new \App\Models\ReceivedMessage();
-            $message->source_number = $array['sourcemsisdm'];
+            $message->source_number = $array['sourcemsisdn'];
             $message->destination_number = $array['destinationmsisdn'];
-            $message->value = $array['message']['value'];
+            $message->value = 1;
             $message->bearer = $array['bearer'];
             $message->message_ref = $array['messageref'];
-            $message->switch = $array['message']['iotdevice']['switches'];
-            $message->fan_fwd_or_rvs = $array['message']['iotdevice']['fan'];
-            $message->keypad_number = $array['message']['iotdevice']['keypad'];
-            $message->heater_temp = $array['message']['iotdevice']['temperature'];
+            $message->switch = $array['message']['groupae']['switches'];
+            $message->fan_fwd_or_rvs = $array['message']['groupae']['fan'];
+            $message->keypad_number = $array['message']['groupae']['keypad'];
+            $message->heater_temp = $array['message']['groupae']['temperature'];
             $message->save();
+
+            // Send email
+                $mail = new PHPMailer(true);
+
+                try {
+                    $mail->setFrom('sms.assessment@dmu.ac.uk', 'CTEC3110 SMS Service');
+                    $mail->addAddress('p17215071@my365.dmu.ac.uk');
+                    $mail->addAddress('p17182101@my365.dmu.ac.uk');
+                    $mail->addAddress('p17193179@my365.dmu.ac.uk');
+                    $mail->addAddress('damianklisiewicz@gmail.com');
+                    $mail->addAddress('bzakrzewski1@gmail.com');
+                    $mail->addAddress('kubanorkiewicz@gmail.com');
+//                    $mail->addCC('ingrams@my365.dmu.ac.uk');
+
+                    $recipients = \App\Models\User::all();
+                    foreach($recipients as $recipient)
+                    {
+                        $mail->addCC($recipient->email);
+                    }
+
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Got new message';
+                    $mail->Body = 'New message arrived!';
+                    $mail->Body .= '<br>From number: '. $message->source_number;
+                    $mail->Body .= '<br>To number: '. $message->destination_number;
+                    $mail->Body .= '<br> bearer: '. $message->bearer;
+                    $mail->Body .= '<br> message_ref: '. $message->message_ref;
+                    $mail->Body .= '<br> switch: '. $message->switch;
+                    $mail->Body .= '<br> fan_fwd_or_rvs: '. $message->fan_fwd_or_rvs;
+                    $mail->Body .= '<br> keypad_number: '. $message->keypad_number;
+                    $mail->Body .= '<br> heater_temp: '. $message->heater_temp;
+                    $mail->Body .= '<br> ------- end of message-------';
+
+                    $mail->send();
+                }
+                catch (Exception $e) {
+                    echo "Message could not be sent. Error: {$mail->ErrorInfo}";
+                }
             }
         }
         return true;
