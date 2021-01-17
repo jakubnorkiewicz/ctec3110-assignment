@@ -19,10 +19,10 @@ Roles:
 
 
 The application must, as a minimum:
-- [ ] Use a PHP SOAP client to download SMS messages from the M2M Connect server.
-- [ ] Parse all downloaded messages.
-- [ ] Validate all content.
-- [ ] Store the downloaded message (content and metadata) in the database.
+- [x] Use a PHP SOAP client to download SMS messages from the M2M Connect server.
+- [x] Parse all downloaded messages.
+- [x] Validate all content.
+- [x] Store the downloaded message (content and metadata) in the database.
 - [x] Display the message content and metadata on the web-browser
 - [x] Message metadata: eg source SIM number, name, email address
 - [x] Message content: ie state of switches on the board, temperature, key-pad value, etc
