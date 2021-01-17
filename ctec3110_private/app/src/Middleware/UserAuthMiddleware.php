@@ -34,6 +34,7 @@ final class UserAuthMiddleware implements MiddlewareInterface
         }
 
         $response = new Response();
-        return $response->withStatus(302)->withHeader('Location', '/');
+        $response->getBody()->write("401 Unauthorized access");
+        return $response->withStatus(401);
     }
 }

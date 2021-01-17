@@ -45,4 +45,44 @@ class RegistrationTest extends TestCase
 
         $dbUser->delete();
     }
+
+    /** @test */
+    public function tryToAddUserWithUnsecurePassword()
+    {
+        $user = [
+            'email' => 'user@short_password.com',
+            'password' => 'qwerty'
+        ];
+
+        $this->http->post('/register', [
+            'form_params' => $user
+        ]);
+
+        $dbUser = User::where('email', $user['email'])
+            ->first();
+        $this->assertNull($dbUser, "User was added to the database.");
+    }
+
+    /** @test */
+    public function tryToAddUserWithTakenEmailAddress()
+    {
+        $existingUser = new User();
+        $existingUser->email = 'user@taken_email.com';
+        $existingUser->password = password_hash('password_test', PASSWORD_BCRYPT);
+        $existingUser->save();
+
+        $user = [
+            'email' => 'user@taken_email.com',
+            'password' => 'Pa$$w0rd!'
+        ];
+
+        $this->http->post('/register', [
+            'form_params' => $user
+        ]);
+
+        $dbUsers = User::where('email', $user['email']);
+        $this->assertNotEquals(2, $dbUsers->count());
+
+        $existingUser->delete();
+    }
 }
