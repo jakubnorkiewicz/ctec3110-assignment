@@ -1,31 +1,35 @@
 <?php
 
+use App\Middleware\MonologMiddleware;
 use App\Middleware\UserAuthMiddleware;
 use App\Models\SentMessage;
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 use Slim\Views\Twig;
 
-/**
- * @param Request $request
- * @param Response $response
- * @return mixed
- */
+$app->group('', function (RouteCollectorProxy $app) {
 
-$app->get('/sms-form', function (Request $request, Response $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'sms-form.html.twig', [
-        'clean'=>true,
-        'user' => $_SESSION['_sf2_attributes']['user'] ?? null
-    ]);
-})->add(UserAuthMiddleware::class);
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return mixed
+     */
 
-/**
- * @param Request $request
- * @param Response $response
- * @return Response
- */
-$app->post('/send-sms', function (Request $request, Response $response, $args) {
+    $app->get('/sms-form', function (Request $request, Response $response, $args) {
+        $view = Twig::fromRequest($request);
+        return $view->render($response, 'sms-form.html.twig', [
+            'clean' => true,
+            'user' => $_SESSION['_sf2_attributes']['user'] ?? null
+        ]);
+    })->add(UserAuthMiddleware::class);
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return Response
+     */
+    $app->post('/send-sms', function (Request $request, Response $response, $args) {
 
         $view = Twig::fromRequest($request);
         $v = new Valitron\Validator($_POST);
@@ -33,7 +37,7 @@ $app->post('/send-sms', function (Request $request, Response $response, $args) {
         $v->rule('lengthBetween', 'phoneNumber', 9, 13);
         $v->rule('lengthBetween', 'message', 1, 160);
 
-        if($v->validate()) {
+        if ($v->validate()) {
 
             $message = new SentMessage();
             $message->destination_number = $request->getParsedBody()['phoneNumber'];
@@ -63,9 +67,11 @@ $app->post('/send-sms', function (Request $request, Response $response, $args) {
 
         } else {
             return $view->render($response, 'sms-form.html.twig', [
-                'validationPassed'=>false,
+                'validationPassed' => false,
                 'user' => $_SESSION['_sf2_attributes']['user'] ?? null
             ]);
 
         }
-})->add(UserAuthMiddleware::class);
+    })->add(UserAuthMiddleware::class);
+
+})->add(MonologMiddleware::class);
