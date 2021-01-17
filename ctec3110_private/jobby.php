@@ -91,7 +91,6 @@ $jobby->add('SaveToDatabase', array(
                     $recipients = \App\Models\User::all();
                     foreach($recipients as $recipient)
                     {
-                        $mail->addBCC($recipient->email);
                         $mail->addCC($recipient->email);
                     }
 
