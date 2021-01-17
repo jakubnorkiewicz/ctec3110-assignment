@@ -35,6 +35,7 @@
                     <a target="_blank" href="https://github.com/jakubnorkiewicz/ctec3110-assignment">Github Link</a>
                 </h4>
             </div>
+            {% if user %}
             <div class="col-2 text-primary py-3 border-bottom border-right">
                 <h4>
                     <a href="/sms-form">Send SMS</a>
@@ -45,6 +46,7 @@
                     <a href="/display">Display messages</a>
                 </h4>
             </div>
+            {% endif %}
         </div>
     </header>
     {% block content %}
