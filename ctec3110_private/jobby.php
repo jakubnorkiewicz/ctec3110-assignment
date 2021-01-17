@@ -9,6 +9,9 @@
 use Dotenv\Dotenv;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $jobby = new \Jobby\Jobby();
@@ -70,6 +73,22 @@ $jobby->add('SaveToDatabase', array(
             $message->keypad_number = $array['message']['iotdevice']['keypad'];
             $message->heater_temp = $array['message']['iotdevice']['temperature'];
             $message->save();
+
+            // Send email
+                $mail = new PHPMailer(true);
+
+                try {
+                    $mail->setFrom('sms.assessment@dmu.ac.uk', 'CTEC3110 SMS Service');
+                    $mail->addAddress('bzakrzewski1@gmail.com');
+                    $mail->addAddress('p17215071@my365.dmu.ac.uk');
+                    //TODO use emails of all registered users
+                    $mail->Subject = 'Got new message';
+                    $mail->Body = 'Got new message: '. $message->value;
+                    $mail->send();
+                }
+                catch (Exception $e) {
+                    echo "Message could not be sent. Error: {$mail->ErrorInfo}";
+                }
             }
         }
         return true;
