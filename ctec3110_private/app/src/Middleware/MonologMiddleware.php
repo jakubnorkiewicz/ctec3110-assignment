@@ -2,14 +2,15 @@
 
 namespace App\Middleware;
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Slim\Psr7\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-final class UserAuthMiddleware implements MiddlewareInterface
+final class MonologMiddleware implements MiddlewareInterface
 {
     /**
      * @var Session
@@ -26,15 +27,14 @@ final class UserAuthMiddleware implements MiddlewareInterface
      * @param RequestHandlerInterface $handler
      * @return ResponseInterface
      */
-
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->session->get('user')) {
-            return $handler->handle($request);
-        }
+        $log = new Logger('web-activity');
+        $log->pushHandler(new StreamHandler(__DIR__ . '/../../../../ctec3110_private/storage/log/web-activity.log',
+            Logger::INFO));
 
-        $response = new Response();
-        $response->getBody()->write("401 Unauthorized access");
-        return $response->withStatus(401);
+        $log->info($request->getProtocolVersion() . ' ' . $request->getMethod() . ' ' . $request->getUri());
+
+        return $handler->handle($request);
     }
 }

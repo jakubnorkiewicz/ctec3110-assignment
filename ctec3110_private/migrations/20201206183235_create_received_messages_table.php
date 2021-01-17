@@ -16,13 +16,13 @@ class CreateReceivedMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('source_number');
             $table->string('destination_number');
-            $table->string('value');
             $table->string('bearer');
             $table->string('message_ref');
             $table->boolean('switch');
             $table->string('fan_fwd_or_rvs');
             $table->float('heater_temp');
             $table->integer('keypad_number');
+            $table->dateTime('received_time');
             $table->timestamps();
         });
     }
