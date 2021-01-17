@@ -1,5 +1,6 @@
 <?php
 
+use App\Middleware\UserAuthMiddleware;
 use App\Models\SentMessage;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -17,7 +18,7 @@ $app->get('/sms-form', function (Request $request, Response $response, $args) {
         'clean'=>true,
         'user' => $_SESSION['_sf2_attributes']['user'] ?? null
     ]);
-});
+})->add(UserAuthMiddleware::class);
 
 /**
  * @param Request $request
@@ -67,4 +68,4 @@ $app->post('/send-sms', function (Request $request, Response $response, $args) {
             ]);
 
         }
-});
+})->add(UserAuthMiddleware::class);
