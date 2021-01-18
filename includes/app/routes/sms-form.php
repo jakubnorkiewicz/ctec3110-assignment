@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Views\Twig;
 
-$app->group('', function (RouteCollectorProxy $app) {
+$app->group('/p17215071', function (RouteCollectorProxy $app) {
 
     /**
      * @param Request $request
