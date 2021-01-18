@@ -23,6 +23,7 @@ $container = new Container();
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
+$app->setBasePath("/p17215071");
 
 $container->set('Session', function () use ($container) {
     $settings = $container->get('settings')['session'];
