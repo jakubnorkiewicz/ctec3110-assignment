@@ -23,8 +23,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "ctec3110_private/app/src",
-            "App\\Tests\\": "ctec3110_private/tests"
+            "App\\": "includes/app/src",
+            "App\\Tests\\": "includes/tests"
         }
     },
     "require-dev": {

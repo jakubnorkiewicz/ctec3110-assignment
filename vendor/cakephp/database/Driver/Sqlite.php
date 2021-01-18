@@ -59,7 +59,7 @@ class Sqlite extends Driver
     /**
      * The schema dialect class for this driver
      *
-     * @var \Cake\Database\Schema\SqliteSchemaDialect
+     * @var \Cake\Database\Schema\SqliteSchemaDialect|null
      */
     protected $_schemaDialect;
 
@@ -232,7 +232,11 @@ class Sqlite extends Driver
     }
 
     /**
-     * @inheritDoc
+     * Receives a FunctionExpression and changes it so that it conforms to this
+     * SQL dialect.
+     *
+     * @param \Cake\Database\Expression\FunctionExpression $expression The function expression to convert to TSQL.
+     * @return void
      */
     protected function _transformFunctionExpression(FunctionExpression $expression): void
     {

@@ -67,4 +67,4 @@ connection details.
 ### Migration setup
   1. Clone .env.example file and rename it to .env
   2. Update database and M2M connection details if needed
-  3. Run `php vendor/bin/phinx migrate -c ctec3110_private/config/phinx.php` command
+  3. Run `php vendor/bin/phinx migrate -c includes/config/phinx.php` command

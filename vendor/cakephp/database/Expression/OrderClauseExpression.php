@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Cake\Database\Expression;
 
 use Cake\Database\ExpressionInterface;
+use Cake\Database\Query;
 use Cake\Database\ValueBinder;
 use Closure;
 
@@ -49,12 +50,14 @@ class OrderClauseExpression implements ExpressionInterface, FieldInterface
     /**
      * @inheritDoc
      */
-    public function sql(ValueBinder $generator): string
+    public function sql(ValueBinder $binder): string
     {
         /** @var string|\Cake\Database\ExpressionInterface $field */
         $field = $this->_field;
-        if ($field instanceof ExpressionInterface) {
-            $field = $field->sql($generator);
+        if ($field instanceof Query) {
+            $field = sprintf('(%s)', $field->sql($binder));
+        } elseif ($field instanceof ExpressionInterface) {
+            $field = $field->sql($binder);
         }
 
         return sprintf('%s %s', $field, $this->_direction);
@@ -63,11 +66,11 @@ class OrderClauseExpression implements ExpressionInterface, FieldInterface
     /**
      * @inheritDoc
      */
-    public function traverse(Closure $visitor)
+    public function traverse(Closure $callback)
     {
         if ($this->_field instanceof ExpressionInterface) {
-            $visitor($this->_field);
-            $this->_field->traverse($visitor);
+            $callback($this->_field);
+            $this->_field->traverse($callback);
         }
 
         return $this;

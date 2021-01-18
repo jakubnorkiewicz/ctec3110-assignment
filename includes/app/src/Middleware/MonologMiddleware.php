@@ -30,7 +30,7 @@ final class MonologMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $log = new Logger('web-activity');
-        $log->pushHandler(new StreamHandler(__DIR__ . '/../../../../ctec3110_private/storage/log/web-activity.log',
+        $log->pushHandler(new StreamHandler(__DIR__ . '/../../../../includes/storage/log/web-activity.log',
             Logger::INFO));
 
         $log->info($request->getProtocolVersion() . ' ' . $request->getMethod() . ' ' . $request->getUri());

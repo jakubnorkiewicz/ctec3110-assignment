@@ -8,7 +8,7 @@ $dotenv->load();
 
 return [
     'paths' => [
-        'migrations' => 'ctec3110_private/migrations'
+        'migrations' => 'includes/migrations'
     ],
     'migration_base_class' => '\App\Migration',
     'environments' => [

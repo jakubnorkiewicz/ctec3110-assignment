@@ -38,7 +38,7 @@ $app->add(SessionMiddleware::class);
 
 // Create Monolog log file
 $log = new Logger('Dev');
-$log->pushHandler(new StreamHandler(__DIR__ . '/../ctec3110_private/storage/log/monolog.log', Logger::WARNING));
+$log->pushHandler(new StreamHandler(__DIR__ . '/../includes/storage/log/monolog.log', Logger::WARNING));
 $log->pushHandler(new Monolog\Handler\StreamHandler("php://output", Logger::WARNING));
 ErrorHandler::register($log);
 
@@ -56,13 +56,13 @@ $capsule->bootEloquent();
 $capsule->setAsGlobal();
 
 // Create Twig
-$twig = Twig::create(__DIR__ . '/../ctec3110_private/components',
+$twig = Twig::create(__DIR__ . '/../includes/components',
     ['cache' => false]);
 //    ['cache' => __DIR__ . '/../storage/cache']);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
 
-require __DIR__ . '/../ctec3110_private/app/routes.php';
+require __DIR__ . '/../includes/app/routes.php';
 
 $app->run();
