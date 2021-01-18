@@ -36,6 +36,6 @@ final class LoginSubmitAction
                 $this->session->set('user', $user);
         }
 
-        return $response->withStatus(302)->withHeader('Location', '/');
+        return $response->withStatus(302)->withHeader('Location', '/p17215071');
     }
 }

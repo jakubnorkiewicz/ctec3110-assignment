@@ -26,6 +26,6 @@ final class LogoutAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $this->session->invalidate();
-        return $response->withStatus(200)->withHeader('Location', '/');
+        return $response->withStatus(200)->withHeader('Location', '/p17215071');
     }
 }
