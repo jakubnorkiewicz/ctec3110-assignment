@@ -14,7 +14,7 @@ use Slim\Views\Twig;
  */
 
 
-$app->group('/p17215071', function (RouteCollectorProxy $app) {
+$app->group('', function (RouteCollectorProxy $app) {
     $app->get('/account', function (Request $request, Response $response, $args) {
         $view = Twig::fromRequest($request);
         return $view->render($response, 'account.html.twig', [
