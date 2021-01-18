@@ -41,23 +41,21 @@ vulnerabilities
 - [x] Validated HTML 5 (using simple CSS for web-page layout/presentation)
 - [x] MySQL/MariaDb
 - [x] SOAP & WSDL file
-- [ ] Docblock comments
+- [x] Docblock comments
 - [x] Consistent coding style
 - [x] following the PHP-FIG PSR-1 & PSR-12 coding standards guidelines
 - [x] Use of the Subversion Version Control Server
-- [ ] Validation of all web-pages at http://validator.w3.org/ - include the W3C validated
+- [x] Validation of all web-pages at http://validator.w3.org/ - include the W3C validated
 logo on your web-pages when validated.
 
 Possible extensions to the implementation could include:
 - [x] implementation of registration and login/logout features, incorporating correct session
 management.
 - [x] displaying numerical data in chart form.
-- [ ] an interface to send SMS messages back to the “circuit board” containing updated
+- [x] an interface to send SMS messages back to the “circuit board” containing updated
 settings for the board.
 - [x] administration interface to maintain users/connection data in the database.
 - [x] logging all web-application activity.
-- [ ] using AJAX and JSON (or an RSS/ATOM feed) to update the display in the browser
-as new SMS reports are downloaded.
 - [x] checking message metadata (eg name/phone number) against pre-stored values, thus
 avoiding duplication of stored messages.
 - [x] sending an SMS or email reporting the receipt of the new message to the user’s
