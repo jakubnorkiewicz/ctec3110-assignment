@@ -31,12 +31,12 @@ $jobby->add('SaveToDatabase', array(
 
         $capsule = new Capsule;
         $capsule->addConnection([
-            'driver' => $_ENV['DB_DRIVER'],
-            'host' => $_ENV['DB_HOST'],
-            'port' => $_ENV['DB_PORT'],
-            'database' => $_ENV['DB_NAME'],
-            'username' => $_ENV['DB_USER'],
-            'password' => $_ENV['DB_PASSWORD'],
+            'driver' => $_ENV['DB_DRIVER_15'],
+            'host' => $_ENV['DB_HOST_15'],
+            'port' => $_ENV['DB_PORT_15'],
+            'database' => $_ENV['DB_NAME_15'],
+            'username' => $_ENV['DB_USER_15'],
+            'password' => $_ENV['DB_PASSWORD_15'],
         ]);
 
         $capsule->bootEloquent();
@@ -46,11 +46,11 @@ $jobby->add('SaveToDatabase', array(
         $soap_client_parameters = ['trace' => true, 'exceptions' => true];
 
         // Initialize WS with the WSDL
-        $client = new SoapClient($_ENV['WSDL_URL'], $soap_client_parameters);
+        $client = new SoapClient($_ENV['WSDL_URL_15'], $soap_client_parameters);
 
         $paramsReadMessages = array(
-            "username" => $_ENV['WSDL_USERNAME'],
-            "password" => $_ENV['WSDL_PASSWORD'],
+            "username" => $_ENV['WSDL_USERNAME_15'],
+            "password" => $_ENV['WSDL_PASSWORD_15'],
             "count" => 10,
             "deviceMSISDN" => "",
         );

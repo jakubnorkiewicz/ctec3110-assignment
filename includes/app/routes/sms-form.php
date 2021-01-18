@@ -46,11 +46,11 @@ $app->group('', function (RouteCollectorProxy $app) {
             $soap_client_parameters = ['trace' => true, 'exceptions' => true];
 
             // Initialize WS with the WSDL
-            $client = new SoapClient($_ENV['WSDL_URL'], $soap_client_parameters);
+            $client = new SoapClient($_ENV['WSDL_URL_15'], $soap_client_parameters);
 
             $paramsSendMessage = array(
-                "username" => $_ENV['WSDL_USERNAME'],
-                "password" => $_ENV['WSDL_PASSWORD'],
+                "username" => $_ENV['WSDL_USERNAME_15'],
+                "password" => $_ENV['WSDL_PASSWORD_15'],
                 "deviceMSISDN" => $request->getParsedBody()['phoneNumber'],
                 "message" => $request->getParsedBody()['message'],
                 "deliveryReport" => false,
